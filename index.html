@@ -1,137 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shoe Mart - Premium Footwear</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tabbed UI with Red Header</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+
+  <style>
+    .custom-header {
+      background-color: #dc3545; /* Bootstrap danger red */
+      color: white;
+      padding: 1rem;
+    }
+
+    .tab-button {
+      background-color: #fff;
+      border: 1px solid #dc3545;
+      color: #dc3545;
+      font-size: 0.9rem;
+      margin: 2px;
+      flex: 1 1 auto;
+    }
+
+    .tab-button.active {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .tab-content-section {
+      display: none;
+    }
+
+    .tab-content-section.active {
+      display: block;
+      padding: 1rem;
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-top: none;
+    }
+
+    @media (max-width: 576px) {
+      .tab-button {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header with Navigation -->
-    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo.png" alt="Shoe Mart Logo" class="logo"> Shoe Mart
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">New Arrivals</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Sale</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                </ul>
-                <a href="#" class="btn btn-outline-light ml-3">Cart</a>
-            </div>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content text-center">
-            <h1>Step Into the Future</h1>
-            <p>Discover the Best Collection of Footwear</p>
-            <a href="#" class="btn btn-primary btn-lg">Shop Now</a>
-        </div>
-    </section>
+  <!-- Header -->
+  <header class="custom-header text-center">
+    <h1 class="h5 mb-0">RDM 11 - Tabs Panel</h1>
+  </header>
 
-    <!-- Categories Section -->
-    <section class="categories py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Shop by Category</h2>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="category-card">
-                        <img src="images/men-shoes.jpg" alt="Men Shoes" class="img-fluid">
-                        <div class="category-info">
-                            <h5>Men's Shoes</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="category-card">
-                        <img src="images/women-shoes.jpg" alt="Women Shoes" class="img-fluid">
-                        <div class="category-info">
-                            <h5>Women's Shoes</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="category-card">
-                        <img src="images/kids-shoes.jpg" alt="Kids Shoes" class="img-fluid">
-                        <div class="category-info">
-                            <h5>Kids' Shoes</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="category-card">
-                        <img src="images/sports-shoes.jpg" alt="Sports Shoes" class="img-fluid">
-                        <div class="category-info">
-                            <h5>Sports Shoes</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Tab Buttons -->
+  <div class="container mt-3 text-center">
+    <div class="d-flex flex-wrap justify-content-center">
+      <button type="button" class="btn tab-button active" data-tab="news"><i class="bi bi-newspaper"></i> News</button>
+      <button type="button" class="btn tab-button" data-tab="movie"><i class="bi bi-film"></i> Movie</button>
+      <button type="button" class="btn tab-button" data-tab="prediction"><i class="bi bi-trophy-fill"></i> Prediction</button>
+      <button type="button" class="btn tab-button" data-tab="dreamteam"><i class="bi bi-star-fill"></i> Dream Team</button>
+      <button type="button" class="btn tab-button" data-tab="current"><i class="bi bi-globe"></i> Affairs</button>
+      <button type="button" class="btn tab-button" data-tab="jobs"><i class="bi bi-briefcase-fill"></i> Jobs</button>
+    </div>
+  </div>
 
-    <!-- Featured Products Section -->
-    <section class="featured-products py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Featured Collection</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card product-card">
-                        <img src="images/shoe1.jpg" class="card-img-top" alt="Shoe 1">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Nike Air Max</h5>
-                            <p class="card-text">$200</p>
-                            <a href="#" class="btn btn-dark btn-block">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card product-card">
-                        <img src="images/shoe2.jpg" class="card-img-top" alt="Shoe 2">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Adidas UltraBoost</h5>
-                            <p class="card-text">$180</p>
-                            <a href="#" class="btn btn-dark btn-block">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card product-card">
-                        <img src="images/shoe3.jpg" class="card-img-top" alt="Shoe 3">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Puma RS-X</h5>
-                            <p class="card-text">$150</p>
-                            <a href="#" class="btn btn-dark btn-block">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Tab Content -->
+  <div class="container">
+    <div id="tab-content-news" class="tab-content-section active">
+      <h6>📰 Latest News</h6>
+      <p class="small">This section contains the latest news articles.</p>
+    </div>
 
-    <!-- Footer Section -->
-    <footer class="bg-dark text-light py-4">
-        <div class="container text-center">
-            <p>&copy; 2024 Shoe Mart. All rights reserved.</p>
-            <p><a href="#" class="text-light">Privacy Policy</a> | <a href="#" class="text-light">Terms of Service</a></p>
-        </div>
-    </footer>
+    <div id="tab-content-movie" class="tab-content-section">
+      <h6>🎬 Movie Reviews</h6>
+      <p class="small">Read the latest movie reviews here.</p>
+    </div>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div id="tab-content-prediction" class="tab-content-section">
+      <h6>🏆 Predictions</h6>
+      <p class="small">Check out sports and election predictions.</p>
+    </div>
+
+    <div id="tab-content-dreamteam" class="tab-content-section">
+      <h6>⭐ Dream Team</h6>
+      <p class="small">Fantasy sports team recommendations.</p>
+    </div>
+
+    <div id="tab-content-current" class="tab-content-section">
+      <h6>🌐 Current Affairs</h6>
+      <p class="small">Stay updated with global current affairs.</p>
+    </div>
+
+    <div id="tab-content-jobs" class="tab-content-section">
+      <h6>💼 Job Notifications</h6>
+      <p class="small">Latest government and private job openings.</p>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabSections = document.querySelectorAll('.tab-content-section');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabSections.forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+        const tabName = btn.getAttribute('data-tab');
+        document.getElementById(`tab-content-${tabName}`).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
