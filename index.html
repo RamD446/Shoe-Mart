@@ -3,139 +3,176 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tabbed Header UI</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <title>Cricket & Entertainment Hub</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
-    .custom-header {
-      background-color: #dc3545; /* Red header */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+    }
+
+    /* Header/Navbar */
+    .navbar {
+      background-color: #c4001d; /* red header */
+    }
+
+    .navbar-brand, .nav-link {
+      color: white !important;
+      font-weight: 500;
+    }
+
+    .nav-link:hover {
+      color: #ffc107 !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to right, #8e0e00, #1f1c18);
       color: white;
-      padding: 0.5rem;
-      position: relative;
-      overflow: hidden;
+      padding: 120px 20px 80px;
+      text-align: center;
     }
 
-    .tab-scroll-container {
-      display: flex;
-      align-items: center;
-      overflow-x: auto;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE/Edge */
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
     }
 
-    .tab-scroll-container::-webkit-scrollbar {
-      display: none; /* Chrome/Safari */
+    .hero p {
+      font-size: 1.25rem;
+      margin-top: 15px;
     }
 
-    .tab-button {
-      font-size: 0.8rem;
-      white-space: nowrap;
-      margin-right: 0.5rem;
-      border: 1px solid white;
-      color: white;
-      background: transparent;
-      padding: 0.25rem 0.5rem;
-      border-radius: 0.25rem;
+    /* Sections */
+    .section {
+      padding: 60px 0;
     }
 
-    .tab-button.active {
-      background-color: white;
-      color: #dc3545;
-    }
-
-    .arrow-btn {
-      background: transparent;
+    .card {
       border: none;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    footer {
+      background-color: #212529;
       color: white;
-      font-size: 1.5rem;
-      padding: 0 0.5rem;
+      padding: 30px 0;
     }
 
-    .tab-content-section {
-      display: none;
+    footer a {
+      color: #adb5bd;
+      text-decoration: none;
     }
 
-    .tab-content-section.active {
-      display: block;
-      padding: 1rem;
-      background-color: #f8f9fa;
-      border: 1px solid #dee2e6;
-      border-top: none;
+    footer a:hover {
+      color: #ffc107;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header with Scrollable Tabs and Arrows -->
-  <header class="custom-header d-flex align-items-center">
-    <button class="arrow-btn" id="scrollLeftBtn" title="Scroll left"><i class="bi bi-chevron-left"></i></button>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top shadow">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="#"><i class="bi bi-trophy-fill"></i> Cricket & Entertainment</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon bg-light"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#cricket"><i class="bi bi-shield-fill"></i> Cricket</a></li>
+          <li class="nav-item"><a class="nav-link" href="#movies"><i class="bi bi-film"></i> Movies</a></li>
+          <li class="nav-item"><a class="nav-link" href="#news"><i class="bi bi-newspaper"></i> News</a></li>
+          <li class="nav-item"><a class="nav-link" href="#jobs"><i class="bi bi-briefcase-fill"></i> Jobs</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <div class="tab-scroll-container flex-grow-1 mx-2" id="tabScrollContainer">
-      <button type="button" class="tab-button active" data-tab="news"><i class="bi bi-newspaper"></i> News</button>
-      <button type="button" class="tab-button" data-tab="movie"><i class="bi bi-film"></i> Movies</button>
-      <button type="button" class="tab-button" data-tab="prediction"><i class="bi bi-trophy-fill"></i> Prediction</button>
-      <button type="button" class="tab-button" data-tab="dreamteam"><i class="bi bi-star-fill"></i> Dream Team</button>
-      <button type="button" class="tab-button" data-tab="current"><i class="bi bi-globe"></i> Affairs</button>
-      <button type="button" class="tab-button" data-tab="jobs"><i class="bi bi-briefcase-fill"></i> Jobs</button>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container-fluid">
+      <h1><i class="bi bi-star-fill text-warning"></i> Welcome to Your Hub</h1>
+      <p>Get Cricket Predictions, Movie Reviews, Latest News, and Job Alerts — All in One Place</p>
     </div>
+  </section>
 
-    <button class="arrow-btn" id="scrollRightBtn" title="Scroll right"><i class="bi bi-chevron-right"></i></button>
-  </header>
+  <!-- Cricket Predictions -->
+  <section id="cricket" class="section bg-light">
+    <div class="container-fluid px-5">
+      <h2><i class="bi bi-shield-fill"></i> Cricket Predictions</h2>
+      <div class="card mt-3">
+        <div class="card-body">
+          <h5>India vs Australia - June 25</h5>
+          <p><i class="bi bi-graph-up"></i> Prediction: India likely to win based on recent form and pitch conditions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Tab Content -->
-  <div class="container mt-3">
-    <div id="tab-content-news" class="tab-content-section active">
-      <h5>📰 Latest News</h5>
-      <p>Latest news content here...</p>
+  <!-- Movie Reviews -->
+  <section id="movies" class="section">
+    <div class="container-fluid px-5">
+      <h2><i class="bi bi-film"></i> Latest Movie Reviews</h2>
+      <div class="card mt-3">
+        <div class="card-body">
+          <h5>Fighter (2025)</h5>
+          <p><i class="bi bi-star-half"></i> A thrilling action movie with stunning visuals and a gripping story. 4/5 ⭐</p>
+        </div>
+      </div>
     </div>
-    <div id="tab-content-movie" class="tab-content-section">
-      <h5>🎬 Movie Reviews</h5>
-      <p>Movie reviews here...</p>
+  </section>
+
+  <!-- Latest News -->
+  <section id="news" class="section bg-light">
+    <div class="container-fluid px-5">
+      <h2><i class="bi bi-newspaper"></i> Latest News</h2>
+      <div class="card mt-3">
+        <div class="card-body">
+          <h5><i class="bi bi-lightbulb-fill text-warning"></i> Tech Giant Launches New AI Tool</h5>
+          <p>This revolutionary tool will reshape how developers interact with code and data.</p>
+        </div>
+      </div>
     </div>
-    <div id="tab-content-prediction" class="tab-content-section">
-      <h5>🏆 Predictions</h5>
-      <p>Prediction content...</p>
+  </section>
+
+  <!-- Job Notifications -->
+  <section id="jobs" class="section">
+    <div class="container-fluid px-5">
+      <h2><i class="bi bi-briefcase-fill"></i> Job Notifications</h2>
+      <div class="card mt-3">
+        <div class="card-body">
+          <h5>TCS Hiring Software Developer</h5>
+          <p><i class="bi bi-geo-alt-fill"></i> Bengaluru | <i class="bi bi-calendar"></i> Apply by: July 15, 2025</p>
+        </div>
+      </div>
     </div>
-    <div id="tab-content-dreamteam" class="tab-content-section">
-      <h5>⭐ Dream Team</h5>
-      <p>Dream team content...</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container-fluid">
+      <p class="mb-1">&copy; 2025 Cricket & Entertainment Hub</p>
+      <small>
+        <a href="#"><i class="bi bi-facebook"></i> Facebook</a> |
+        <a href="#"><i class="bi bi-twitter"></i> Twitter</a> |
+        <a href="#"><i class="bi bi-instagram"></i> Instagram</a>
+      </small>
     </div>
-    <div id="tab-content-current" class="tab-content-section">
-      <h5>🌐 Current Affairs</h5>
-      <p>Current affairs content...</p>
-    </div>
-    <div id="tab-content-jobs" class="tab-content-section">
-      <h5>💼 Jobs</h5>
-      <p>Job notifications...</p>
-    </div>
-  </div>
+  </footer>
 
   <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabSections = document.querySelectorAll('.tab-content-section');
-
-    tabButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabButtons.forEach(b => b.classList.remove('active'));
-        tabSections.forEach(s => s.classList.remove('active'));
-
-        btn.classList.add('active');
-        const tabName = btn.getAttribute('data-tab');
-        document.getElementById(`tab-content-${tabName}`).classList.add('active');
-      });
-    });
-
-    // Arrow scroll functionality
-    const scrollContainer = document.getElementById('tabScrollContainer');
-    document.getElementById('scrollLeftBtn').addEventListener('click', () => {
-      scrollContainer.scrollBy({ left: -100, behavior: 'smooth' });
-    });
-    document.getElementById('scrollRightBtn').addEventListener('click', () => {
-      scrollContainer.scrollBy({ left: 100, behavior: 'smooth' });
-    });
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
