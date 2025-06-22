@@ -1,207 +1,726 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cricket & Entertainment Hub</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-    }
-
-    /* Header/Navbar */
-    .navbar {
-      background-color: #c4001d; /* red header */
-    }
-
-    .navbar-brand, .nav-link {
-      color: white !important;
-      font-weight: 500;
-    }
-
-    .nav-link:hover {
-      color: #ffc107 !important;
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(to right, #8e0e00, #1f1c18);
-      color: white;
-      padding: 120px 20px 80px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: bold;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      margin-top: 15px;
-    }
-
-    /* Sections */
-    .section {
-      padding: 60px 0;
-    }
-
-    .card {
-      border: none;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    footer {
-      background-color: #212529;
-      color: white;
-      padding: 30px 0;
-    }
-
-    footer a {
-      color: #adb5bd;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: #ffc107;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMatch Sports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8fafc;
+        }
+        .heading-font {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card {
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+        .cricket-card {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        .movie-card {
+            background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+        }
+        .news-card {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #ffffff;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .active::after {
+            width: 100%;
+        }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
 </head>
 <body>
-<!-- Bootstrap Navbar with Mobile Support -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top shadow">
-  <div class="container-fluid px-4">
-    <a class="navbar-brand fw-bold" href="#"><i class="bi bi-trophy-fill me-2"></i>Cricket & Entertainment</a>
-    
-    <!-- Hamburger icon for mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Collapsible menu -->
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="#cricket"><i class="bi bi-shield-fill"></i> Cricket</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#movies"><i class="bi bi-film"></i> Movies</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#news"><i class="bi bi-newspaper"></i> News</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#jobs"><i class="bi bi-briefcase-fill"></i> Jobs</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top shadow">
-    <div class="container-fluid px-4">
-      <a class="navbar-brand" href="#"><i class="bi bi-trophy-fill"></i> Cricket & Entertainment</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon bg-light"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#cricket"><i class="bi bi-shield-fill"></i> Cricket</a></li>
-          <li class="nav-item"><a class="nav-link" href="#movies"><i class="bi bi-film"></i> Movies</a></li>
-          <li class="nav-item"><a class="nav-link" href="#news"><i class="bi bi-newspaper"></i> News</a></li>
-          <li class="nav-item"><a class="nav-link" href="#jobs"><i class="bi bi-briefcase-fill"></i> Jobs</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container-fluid">
-      <h1><i class="bi bi-star-fill text-warning"></i> Welcome to Your Hub</h1>
-      <p>Get Cricket Predictions, Movie Reviews, Latest News, and Job Alerts — All in One Place</p>
-    </div>
-  </section>
-
-  <!-- Cricket Predictions -->
-  <section id="cricket" class="section bg-light">
-    <div class="container-fluid px-5">
-      <h2><i class="bi bi-shield-fill"></i> Cricket Predictions</h2>
-      <div class="card mt-3">
-        <div class="card-body">
-          <h5>India vs Australia - June 25</h5>
-          <p><i class="bi bi-graph-up"></i> Prediction: India likely to win based on recent form and pitch conditions.</p>
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full gradient-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-bold heading-font">CineMatch<span class="text-indigo-400">Sports</span></h1>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#home" class="nav-link active font-medium">Home</a></li>
+                        <li><a href="#movies" class="nav-link font-medium">Movies</a></li>
+                        <li><a href="#cricket" class="nav-link font-medium">Cricket</a></li>
+                        <li><a href="#news" class="nav-link font-medium">News</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <ul class="flex flex-col space-y-3">
+                    <li><a href="#home" class="block py-2 px-4 hover:bg-gray-800 rounded">Home</a></li>
+                    <li><a href="#movies" class="block py-2 px-4 hover:bg-gray-800 rounded">Movies</a></li>
+                    <li><a href="#cricket" class="block py-2 px-4 hover:bg-gray-800 rounded">Cricket</a></li>
+                    <li><a href="#news" class="block py-2 px-4 hover:bg-gray-800 rounded">News</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Movie Reviews -->
-  <section id="movies" class="section">
-    <div class="container-fluid px-5">
-      <h2><i class="bi bi-film"></i> Latest Movie Reviews</h2>
-      <div class="card mt-3">
-        <div class="card-body">
-          <h5>Fighter (2025)</h5>
-          <p><i class="bi bi-star-half"></i> A thrilling action movie with stunning visuals and a gripping story. 4/5 ⭐</p>
+    <!-- Hero Section -->
+    <section id="home" class="relative hero-pattern">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-600/90 to-purple-600/90"></div>
+        <div class="relative container mx-auto px-4 py-20 md:py-32">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 text-white mb-10 md:mb-0">
+                    <h2 class="text-4xl md:text-5xl font-bold heading-font mb-6">Entertainment & Sports in One Place</h2>
+                    <p class="text-lg md:text-xl text-indigo-100 mb-8">Get the latest movie reviews, cricket predictions, and trending news all curated just for you.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-white text-indigo-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300">Explore Now</button>
+                        <button class="bg-transparent hover:bg-white/10 text-white font-semibold py-3 px-8 border-2 border-white rounded-full transition duration-300">Subscribe</button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -top-6 -left-6 w-24 h-24 bg-yellow-400 rounded-full opacity-50 blur-xl"></div>
+                        <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-pink-500 rounded-full opacity-50 blur-xl"></div>
+                        
+                        <div class="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-xl">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+                                    </svg>
+                                    <h3 class="font-bold">Movie Reviews</h3>
+                                    <p class="text-sm opacity-80">Latest film critiques</p>
+                                </div>
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <h3 class="font-bold">Cricket Stats</h3>
+                                    <p class="text-sm opacity-80">Performance analysis</p>
+                                </div>
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                    <h3 class="font-bold">Predictions</h3>
+                                    <p class="text-sm opacity-80">Match forecasts</p>
+                                </div>
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                                    </svg>
+                                    <h3 class="font-bold">News</h3>
+                                    <p class="text-sm opacity-80">Breaking stories</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Latest News -->
-  <section id="news" class="section bg-light">
-    <div class="container-fluid px-5">
-      <h2><i class="bi bi-newspaper"></i> Latest News</h2>
-      <div class="card mt-3">
-        <div class="card-body">
-          <h5><i class="bi bi-lightbulb-fill text-warning"></i> Tech Giant Launches New AI Tool</h5>
-          <p>This revolutionary tool will reshape how developers interact with code and data.</p>
+    <!-- Category Cards -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold heading-font mb-4">Explore Categories</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Dive into our comprehensive coverage of movies, cricket, and entertainment news.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Movie Card -->
+                <div class="card rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 movie-card flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold heading-font mb-3">Movie Reviews</h3>
+                        <p class="text-gray-600 mb-4">Expert analysis and ratings of the latest blockbusters, indie gems, and classic films.</p>
+                        <a href="#movies" class="inline-flex items-center text-rose-600 font-semibold">
+                            Explore Reviews
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Cricket Card -->
+                <div class="card rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 cricket-card flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold heading-font mb-3">Cricket Predictions</h3>
+                        <p class="text-gray-600 mb-4">Data-driven match forecasts, player performance analysis, and tournament insights.</p>
+                        <a href="#cricket" class="inline-flex items-center text-emerald-600 font-semibold">
+                            View Predictions
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- News Card -->
+                <div class="card rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 news-card flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold heading-font mb-3">Entertainment News</h3>
+                        <p class="text-gray-600 mb-4">Breaking stories, industry updates, and exclusive content from the world of entertainment.</p>
+                        <a href="#news" class="inline-flex items-center text-blue-600 font-semibold">
+                            Read News
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Job Notifications -->
-  <section id="jobs" class="section">
-    <div class="container-fluid px-5">
-      <h2><i class="bi bi-briefcase-fill"></i> Job Notifications</h2>
-      <div class="card mt-3">
-        <div class="card-body">
-          <h5>TCS Hiring Software Developer</h5>
-          <p><i class="bi bi-geo-alt-fill"></i> Bengaluru | <i class="bi bi-calendar"></i> Apply by: July 15, 2025</p>
+    <!-- Trending Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold heading-font mb-2">Trending Now</h2>
+                    <p class="text-gray-600">What's hot in movies and cricket this week</p>
+                </div>
+                <div class="mt-4 md:mt-0 flex space-x-2">
+                    <button id="trending-prev" class="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <button id="trending-next" class="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="trending-container" class="overflow-hidden">
+                <div id="trending-items" class="flex space-x-6 transition-transform duration-500">
+                    <!-- Trending Item 1 -->
+                    <div class="card flex-shrink-0 w-full md:w-80 bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="h-48 bg-gradient-to-r from-purple-500 to-indigo-500 relative">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-yellow-400 text-xs font-bold px-2 py-1 rounded-full">TRENDING</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded">Movie</span>
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <span class="ml-1 text-xs font-semibold">4.9</span>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold heading-font mb-2">Dune: Part Two</h3>
+                            <p class="text-gray-600 text-sm mb-4">Denis Villeneuve's epic sci-fi sequel continues to dominate box office and critical acclaim.</p>
+                            <a href="#" class="text-indigo-600 font-medium hover:text-indigo-800 text-sm inline-flex items-center">
+                                Read Review
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Trending Item 2 -->
+                    <div class="card flex-shrink-0 w-full md:w-80 bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="h-48 bg-gradient-to-r from-green-500 to-emerald-500 relative">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-yellow-400 text-xs font-bold px-2 py-1 rounded-full">TRENDING</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Cricket</span>
+                                <span class="text-xs text-gray-500">Live</span>
+                            </div>
+                            <h3 class="text-xl font-bold heading-font mb-2">T20 World Cup Final</h3>
+                            <p class="text-gray-600 text-sm mb-4">India and Australia set to clash in what promises to be an epic final showdown.</p>
+                            <a href="#" class="text-emerald-600 font-medium hover:text-emerald-800 text-sm inline-flex items-center">
+                                View Prediction
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Trending Item 3 -->
+                    <div class="card flex-shrink-0 w-full md:w-80 bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="h-48 bg-gradient-to-r from-blue-500 to-cyan-500 relative">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                                </svg>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-yellow-400 text-xs font-bold px-2 py-1 rounded-full">TRENDING</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">News</span>
+                                <span class="text-xs text-gray-500">2 hours ago</span>
+                            </div>
+                            <h3 class="text-xl font-bold heading-font mb-2">New Cricket League Announced</h3>
+                            <p class="text-gray-600 text-sm mb-4">Major cricket board announces revolutionary new league format with global stars.</p>
+                            <a href="#" class="text-blue-600 font-medium hover:text-blue-800 text-sm inline-flex items-center">
+                                Read Story
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Trending Item 4 -->
+                    <div class="card flex-shrink-0 w-full md:w-80 bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="h-48 bg-gradient-to-r from-rose-500 to-pink-500 relative">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-yellow-400 text-xs font-bold px-2 py-1 rounded-full">TRENDING</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="bg-rose-100 text-rose-800 text-xs font-semibold px-2.5 py-0.5 rounded">Movie</span>
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <span class="ml-1 text-xs font-semibold">4.7</span>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold heading-font mb-2">The Batman</h3>
+                            <p class="text-gray-600 text-sm mb-4">Matt Reeves' dark take on the caped crusader continues to gain cult following.</p>
+                            <a href="#" class="text-rose-600 font-medium hover:text-rose-800 text-sm inline-flex items-center">
+                                Read Review
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="text-center">
-    <div class="container-fluid">
-      <p class="mb-1">&copy; 2025 Cricket & Entertainment Hub</p>
-      <small>
-        <a href="#"><i class="bi bi-facebook"></i> Facebook</a> |
-        <a href="#"><i class="bi bi-twitter"></i> Twitter</a> |
-        <a href="#"><i class="bi bi-instagram"></i> Instagram</a>
-      </small>
-    </div>
-  </footer>
+    <!-- Movie Reviews Section -->
+    <section id="movies" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold heading-font mb-2">Latest Movie Reviews</h2>
+                    <p class="text-gray-600">Our critics' takes on recent releases</p>
+                </div>
+                <a href="#" class="mt-4 md:mt-0 text-rose-600 font-semibold hover:text-rose-800 inline-flex items-center">
+                    View all reviews
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Movie Review 1 -->
+                <div class="card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-r from-rose-500 to-pink-500 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold heading-font">Oppenheimer</h3>
+                            <div class="flex items-center bg-yellow-100 px-2 py-1 rounded">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <span class="ml-1 text-sm font-bold">5.0</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Christopher Nolan delivers a masterful biographical thriller that explores the moral complexities of scientific discovery and the atomic age.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-500">By Michael Chen</span>
+                            <a href="#" class="text-rose-600 font-medium hover:text-rose-800 text-sm">Read full review</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Movie Review 2 -->
+                <div class="card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-indigo-500 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold heading-font">Barbie</h3>
+                            <div class="flex items-center bg-yellow-100 px-2 py-1 rounded">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <span class="ml-1 text-sm font-bold">4.2</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Greta Gerwig's surprisingly thoughtful and visually stunning take on the iconic doll with clever social commentary and fantastic performances.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-500">By Sarah Johnson</span>
+                            <a href="#" class="text-rose-600 font-medium hover:text-rose-800 text-sm">Read full review</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Movie Review 3 -->
+                <div class="card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-cyan-500 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold heading-font">Poor Things</h3>
+                            <div class="flex items-center bg-yellow-100 px-2 py-1 rounded">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <span class="ml-1 text-sm font-bold">4.8</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Yorgos Lanthimos crafts a bizarre, beautiful, and thought-provoking fantasy with an outstanding performance from Emma Stone.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-500">By David Wilson</span>
+                            <a href="#" class="text-rose-600 font-medium hover:text-rose-800 text-sm">Read full review</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Cricket Predictions Section -->
+    <section id="cricket" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold heading-font mb-2">Cricket Predictions</h2>
+                    <p class="text-gray-600">Data-driven match forecasts and analysis</p>
+                </div>
+                <a href="#" class="mt-4 md:mt-0 text-emerald-600 font-semibold hover:text-emerald-800 inline-flex items-center">
+                    View all predictions
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Match Prediction 1 -->
+                <div class="card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-2.5 py-0.5 rounded">T20 World Cup</span>
+                            <span class="text-xs text-gray-500">June 15, 2023</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold mr-3">IND</div>
+                                <div>
+                                    <span class="font-semibold block">India</span>
+                                    <span class="text-xs text-gray-500">Home</span>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-sm font-medium text-gray-500 px-4">vs</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div>
+                                    <span class="font-semibold block text-right">Australia</span>
+                                    <span class="text-xs text-gray-500 block text-right">Away</span>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center text-white font-bold ml-3">AUS</div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-blue-600">India</span>
+                                <span class="text-sm font-medium text-blue-600">65%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-yellow-600">Australia</span>
+                                <span class="text-sm font-medium text-yellow-600">35%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 35%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-semibold mb-2">Key Factors</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• India's strong batting lineup</li>
+                                <li>• Home advantage and pitch conditions</li>
+                                <li>• Recent head-to-head record favors India</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="text-emerald-600 font-medium hover:text-emerald-800 text-sm inline-flex items-center">
+                            View detailed analysis
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Match Prediction 2 -->
+                <div class="card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-2.5 py-0.5 rounded">ODI Series</span>
+                            <span class="text-xs text-gray-500">June 18, 2023</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold mr-3">PAK</div>
+                                <div>
+                                    <span class="font-semibold block">Pakistan</span>
+                                    <span class="text-xs text-gray-500">Home</span>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-sm font-medium text-gray-500 px-4">vs</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div>
+                                    <span class="font-semibold block text-right">England</span>
+                                    <span class="text-xs text-gray-500 block text-right">Away</span>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold ml-3">ENG</div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-green-600">Pakistan</span>
+                                <span class="text-sm font-medium text-green-600">45%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-blue-600">England</span>
+                                <span class="text-sm font-medium text-blue-600">55%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 55%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-semibold mb-2">Key Factors</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• England's recent form and strong bowling attack</li>
+                                <li>• Pakistan's inconsistent batting performance</li>
+                                <li>• Weather conditions favor England's pace bowlers</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="text-emerald-600 font-medium hover:text-emerald-800 text-sm inline-flex items-center">
+                            View detailed analysis
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold heading-font mb-2">Latest News</h2>
+                    <p class="text-gray-600">Breaking stories from entertainment and sports</p>
+                </div>
+                <a href="#" class="mt-4 md:mt-0 text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center">
+                    View all news
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News Item 1 -->
+                <div class="card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-500 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Entertainment</span>
+                            <span class="text-xs text-gray-500">3 hours ago</span>
+                        </div>
+                        <h3 class="text-xl font-bold heading-font mb-3">New Superhero Film Franchise Announced</h3>
+                        <p class="text-gray-600 text-sm mb-4">Major studio reveals plans for an ambitious new superhero universe with A-list stars attached to multiple projects.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-500">By Entertainment Desk</span>
+                            <a href="#" class="text-blue-600 font-medium hover:text-blue-800 text-sm">Read full story</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- News Item 2 -->
+                <div class="card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-r from-green-500 to-emerald-500 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Sports</span>
+                            <span class="text-xs text-gray-500">5 hours ago</span>
+                        </div>
+                        <h3 class="text-xl font-bold heading-font mb-3">Star Cricketer Announces Retirement</h3>
+                        <p class="text-gray-600 text-sm mb-4">Legendary player announces retirement from international cricket after a stellar 15-year career with numerous records.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-500">By Sports Desk</span>
+                            <a href="#" class="text-blue-600 font-medium hover:text-blue-800 text-sm">Read full story</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- News Item 3 -->
+                <div class="card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-500 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded">Industry</span>
+                            <span class="text-xs text-gray-500">8 hours ago</span>
+                        </div>
+                        <h3 class="text-xl font-bold heading-font mb-3">Streaming Platform Acquires Major Studio</h3>
+                        <p class="text-gray-600 text-sm mb-4">Leading streaming service announces acquisition of historic film studio in multi-billion dollar deal that reshapes industry.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-500">By Business Desk</span>
+                            <a href="#" class="text-blue-600 font-medium hover:text-blue-800 text-sm">Read full story</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl font-bold heading-font mb-4">Stay Updated</h2>
+                <p class="mb-8 text-indigo-100">Subscribe to our newsletter for the latest movie reviews, cricket predictions, and entertainment news delivered straight to your inbox.</p>
+                <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                    <input type="email" placeholder="Enter your email" class="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+                    <button class="bg-white text-indigo-600 hover:bg-gray-100 font-semibold px-6 py-3 rounded-lg transition duration-300">Subscribe</button>
+                </div>
+                <p class="mt-4 text-xs text-indigo-200">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+<footer>
+
+</footer>
 </body>
 </html>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+
+</script>
